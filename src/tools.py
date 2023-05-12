@@ -1,3 +1,4 @@
+from sys import displayhook
 import pandas as pd
 import numpy as np
 from scipy import stats  as ss
@@ -26,7 +27,7 @@ def jupyter_settings():
     plt.rcParams['figure.figsize'] = [25, 12]
     plt.rcParams['font.size'] = 24
     
-    display( HTML( '<style>.container { width:100% !important; }</style>') )
+    displayhook( HTML( '<style>.container { width:100% !important; }</style>') )
     pd.options.display.max_columns = None
     pd.options.display.max_rows = None
     pd.set_option( 'display.expand_frame_repr', False )
