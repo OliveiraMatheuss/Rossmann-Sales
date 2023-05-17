@@ -5,8 +5,18 @@ from scipy import stats  as ss
 import seaborn as sns
 from matplotlib import pyplot as plt
 from IPython.core.display import HTML
+from sklearn.metrics       import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error
 
 
+def ml_error( model_name, y, yhat ):
+    mae = mean_absolute_error( y, yhat )
+    mape = mean_absolute_percentage_error( y, yhat )
+    rmse = np.sqrt( mean_squared_error( y, yhat ) )
+    
+    return pd.DataFrame( {  'Model Name': model_name, 
+                            'MAE': mae, 
+                            'MAPE': mape,
+                            'RMSE': rmse }, index=[0] )
 
 def cramer_v( x, y ):
     cm = pd.crosstab( x, y ).as_matrix()
