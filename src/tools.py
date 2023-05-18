@@ -6,6 +6,37 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 from IPython.core.display import HTML
 from sklearn.metrics       import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error
+from sklearn.model_selection import TimeSeriesSplit
+
+
+
+def timeSeries_CV(X, y, model_name, model, kfold = 5, verbose = False):
+        mae_list = []
+        mape_list = []
+        rmse_list = []
+        tscv = TimeSeriesSplit(n_splits= kfold)
+        for i, (train_index, test_index) in enumerate(tscv.split(X)):
+                if verbose:
+                        print(f"Fold {i+1}:")
+                
+                # model
+                m = model.fit( X.iloc[train_index], y.iloc[train_index]  )
+
+                # prediction
+                yhat = m.predict(X.iloc[test_index])
+
+                # performance
+                m_result = ml_error( model_name, np.expm1( y.iloc[test_index] ), np.expm1( yhat ) )
+
+                # store performance of each kfold iteration
+                mae_list.append(  m_result['MAE'] )
+                mape_list.append( m_result['MAPE'] )
+                rmse_list.append( m_result['RMSE'] )
+
+        return pd.DataFrame( {'Model Name': model_name,
+                                'MAE CV': np.round( np.mean( mae_list ), 2 ).astype( str ) + ' +/- ' + np.round( np.std( mae_list ), 2 ).astype( str ),
+                                'MAPE CV': np.round( np.mean( mape_list ), 2 ).astype( str ) + ' +/- ' + np.round( np.std( mape_list ), 2 ).astype( str ),
+                                'RMSE CV': np.round( np.mean( rmse_list ), 2 ).astype( str ) + ' +/- ' + np.round( np.std( rmse_list ), 2 ).astype( str ) }, index=[0] )
 
 
 def ml_error( model_name, y, yhat ):
