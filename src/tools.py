@@ -9,6 +9,9 @@ from sklearn.metrics       import mean_absolute_error, mean_squared_error, mean_
 from sklearn.model_selection import TimeSeriesSplit
 
 
+def mean_percentage_erro(y, yhat):
+        mpe = y - yhat
+        return mpe
 
 def timeSeries_CV(X, y, model_name, model, kfold = 5, verbose = False):
         mae_list = []
