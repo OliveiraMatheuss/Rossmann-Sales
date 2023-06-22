@@ -10,8 +10,7 @@ from sklearn.model_selection import TimeSeriesSplit
 
 
 def mean_percentage_erro(y, yhat):
-        mpe = y - yhat
-        return mpe
+        return np.mean((y - yhat)/y)
 
 def timeSeries_CV(X, y, model_name, model, kfold = 5, verbose = False):
         mae_list = []
