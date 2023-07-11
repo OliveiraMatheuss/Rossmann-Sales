@@ -13,10 +13,6 @@ with st.sidebar:
                     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>              
               """, height= 310)
 
-
-
-st.image('image/image.png')
-
 st.markdown("""
                 # 1. Contexto do Problema de Negócio
                 Parabéns! Você acaba de ser contratado como Cientista de Dados da empresa
