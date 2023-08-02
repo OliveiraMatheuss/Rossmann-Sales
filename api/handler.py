@@ -16,10 +16,10 @@ model = pickle.load(open('C:/Users/55329/Documents/3.Repos/Rossmann-sales/model/
 app = Flask(__name__)
 
 @app.route('/rossmann/predict', methods = ['POST'])
-
+ 
 def rossmann_predict():
     test_json = request.get_json()
-    
+    test_json = json.loads(test_json)
     if test_json:
         if isinstance(test_json, dict): # Uma linha unica 
             test_raw = pd.DataFrame( test_json , index = [0])
@@ -48,4 +48,4 @@ def rossmann_predict():
     
 if __name__ == '__main__':
 
-    app.run( '0.0.0.0' )
+    app.run( '0.0.0.0' , debug=True)
