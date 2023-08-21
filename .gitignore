@@ -1,4 +1,3 @@
 *.csv
 .vscode
-model_bay.pkl
-search_GRID.pkl
+/Relatorios

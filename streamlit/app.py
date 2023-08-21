@@ -96,7 +96,7 @@ def main():
         with col1:
             store_ids = st.slider('Escolha as Lojas', value = [1,1115] )
             store_ids = np.arange(store_ids[0], store_ids[1]+1, 1)
-        
+            
         with col2:
             budget = st.slider('Percentual para Orçamento', 0,100,10)
             budget = budget/100
@@ -147,7 +147,7 @@ from typing import List, Union
 import pandas as pd
 import requests
 
-def get_predictions(data: str) -> Union[pd.DataFrame, str]:
+def get_predictions(data: str) -> pd.DataFrame:
     """
     Faz uma chamada para a API de previsão de vendas.
 
@@ -163,24 +163,25 @@ def get_predictions(data: str) -> Union[pd.DataFrame, str]:
         pandas.DataFrame: Um DataFrame contendo os resultados das previsões para cada loja,
                           com as colunas 'store' (ID da loja) e 'prediction' (previsão de vendas).
 
-        str: Uma string de erro caso ocorra um problema durante a previsão.
-
     Exemplo:
         >>> data_json = '{"Store": 1, "DayOfWeek": 3, "Open": 1, "Promo": 0, "StateHoliday": "0", ...}'
         >>> result_df = get_predictions(data_json)
     """
-    url = 'http://localhost:5000/rossmann/predict'
-    #url = 'https://rossmann-api-45ni.onrender.com/rossmann/predict'
+    #url = 'http://localhost:5000/rossmann/predict'
+    url = 'https://rossmann-api-45ni.onrender.com/rossmann/predict'
+    
     headers = {'Content-type': 'application/json'}
-
-    r = requests.post(url, json=data, headers=headers)
-
-    if r.status_code == 200:
-        df_result = pd.DataFrame(r.json(), columns=r.json()[0].keys())
+    try:
+        r = requests.post(url, json=data, headers=headers)
+        r.raise_for_status()  # Raise an exception for HTTP errors (non-2xx responses)
+        
+        df_result = pd.DataFrame(r.json(), columns= r.json()[0].keys())
         df_result = df_result[['store', 'prediction']].groupby('store').sum().reset_index()
         return df_result
-    else:
-        return 'Error occurred during prediction.'
+    
+    except requests.exceptions.RequestException as e:
+        st.write(f"Error occurred during prediction: {e}")
+        return pd.DataFrame(columns=['store', 'prediction'])
 
 if __name__ == '__main__':
     """
