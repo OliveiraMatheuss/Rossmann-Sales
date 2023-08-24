@@ -110,7 +110,7 @@ Os algotitmos selecionados foram:
 Após a seleção dos algoritmos, procedemos com o treinamento e teste de cada um deles para avaliar sua performance. Além disso, utilizamos o método de seleção de features RFE para identificar as variáveis mais relevantes e impactantes na base de dados. 
 
 # 6. Seleção do Modelo de Machine Learning
-## 6.1. Esolha da Métrica
+## 6.1. Escolha da Métrica
 Na escolha entre os algoritmos, utilizamos a métrica ***MAPE (Mean Absolute Percentage Error)***, que é uma medida de erro que expressa a porcentagem média do erro em relação ao valor real. Optei por essa métrica porque ela é mais compreensível para a equipe de negócios e o CEO, uma vez que fornece uma representação percentual do erro em relação ao valor médio. Dessa forma, é mais fácil interpretar e comunicar o desempenho dos algoritmos selecionados.
 
 ## 6.2. Métricas dos Algoritmos - *Time Series Cross-Validation*
@@ -180,7 +180,8 @@ Gráfico 2: Distribuição do erro em relação a lojas
 
 # 8 Aplicação
  <video src="img/application.mp4" controls title="Title"></video>
-# 8. Conclusões
+
+# 9. Conclusões
 
 Neste estágio do projeto, podemos tirar algumas conclusões importantes. É evidente que o modelo não apresenta um desempenho uniforme para todas as lojas. Nesse sentido, sugiro ao CFO que priorize um levantamento das 700 lojas que demonstraram bom desempenho até o momento.
 
@@ -188,7 +189,7 @@ Para o próximo passo, nossa recomendação é que concentremos nossa análise n
 
 Essa abordagem direcionada nos permitirá otimizar nossos recursos e concentrar nossos esforços onde têm maior probabilidade de impacto positivo.
 
-# 9. Próximos Passos
+# 10. Próximos Passos
 
 * Realizar uma investigação detalhada para identificar as causas das previsões inadequadas em algumas lojas.
 * Explorar a inclusão de diferentes algoritmos durante a próxima fase de treinamento, com o objetivo de aprimorar a precisão das previsões.
