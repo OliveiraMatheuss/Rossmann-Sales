@@ -179,7 +179,8 @@ Gráfico 2: Distribuição do erro em relação a lojas
 |best_scenario_total  | R$317,411,923.22    |
 
 # 8 Aplicação
- <video src="img/application.mp4" controls title="Title"></video>
+ ![](img/application.gif)
+
 
 # 9. Conclusões
 
