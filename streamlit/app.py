@@ -85,8 +85,8 @@ def main():
         None
     """
     
-    test = pd.read_csv('/Users/55329/Documents/3.Repos/Rossmann-sales/data/test.csv')
-    store = pd.read_csv('/Users/55329/Documents/3.Repos/Rossmann-sales/data/store.csv')
+    test = pd.read_csv('data/test.csv')
+    store = pd.read_csv('data/store.csv')
     tab1, tab2 = st.tabs(['Slider','Multiselect'])
     with tab1:
         st.title('Sales Prediction App')
