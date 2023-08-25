@@ -17,6 +17,7 @@ with st.sidebar:
 
 image = Image.open('img/Rossmann.png')
 
+
 st.image(image, width = 400)
 
 st.subheader('Você pode escolher entre intervalos de identificação das lojas usando a aba Slider ou selecionar lojas individualmente pela aba Multiselect.')
