@@ -179,6 +179,8 @@ Gráfico 2: Distribuição do erro em relação a lojas
 |best_scenario_total  | R$317,411,923.22    |
 
 # 8 Aplicação
+Link para a Aplicação: [https://rossmann-sales.streamlit.app/](https://rossmann-sales.streamlit.app/)
+
  ![](img/application.gif)
 
 

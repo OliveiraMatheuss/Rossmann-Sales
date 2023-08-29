@@ -1,0 +1,10 @@
+/* Ajusta a largura da área central */
+.book-body {
+    width: 80%; /* Porcentagem do tamanho da área central */
+  }
+  
+  /* Ajusta a largura da barra lateral */
+  .sphinxsidebar {
+    width: 20%; /* Porcentagem do tamanho da barra lateral */
+  }
+  

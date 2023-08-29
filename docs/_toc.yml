@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Apresentação
+  chapters:
+  - file: notebook
+- caption: Documentação
+  chapters:
+  - file: rossmann
+  - file: data_cleaning
+  - file: feature_engineering
+  - file: data_preparation
+  - file: get_prediction
+  - file: handler
+
+- caption: Contato
+  chapters:
+    - url: https://oliveiramatheuss.github.io/MatheusOliveiraPortifolio/
+      title: Portifólio de Projetos
+    - url: https://www.linkedin.com/in/oliveiramatheuss/
+      title: LinkedIn
+    - url: https://github.com/OliveiraMatheuss
+      title: GitHub
