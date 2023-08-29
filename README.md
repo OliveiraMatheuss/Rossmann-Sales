@@ -179,6 +179,11 @@ Gráfico 2: Distribuição do erro em relação a lojas
 |best_scenario_total  | R$317,411,923.22    |
 
 # 8 Aplicação
+
+No GIF, você verá como o CFO pode inserir a porcentagem de orçamento desejada para cada loja. A plataforma então calcula automaticamente as previsões de vendas para as próximas 6 semanas e estipula o orçamento correspondente. Ao finalizar, o CFO pode baixar um arquivo CSV contendo as previsões e os orçamentos para análises adicionais.
+
+A nossa plataforma simplifica e agiliza o processo de tomada de decisões, fornecendo informações precisas e acessíveis de maneira intuitiva.
+
 Link para a Aplicação: [https://rossmann-sales.streamlit.app/](https://rossmann-sales.streamlit.app/)
 
  ![](img/application.gif)
