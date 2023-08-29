@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="api.rossmann.Rossmann" href="rossmann.html" />
-    <link rel="prev" title="Readme" href="README.html" />
+    <link rel="prev" title="Readme" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -131,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="README.html">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="README.html">
+                <a class="reference internal" href="intro.html">
                     Readme
                 </a>
             </li>
@@ -757,7 +757,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2023-08-28T21:13:29.953916-03:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2023-08-28T23:09:44.063558-03:00
 
 Python implementation: CPython
 Python version       : 3.10.9
@@ -1046,15 +1046,30 @@ dtype: int64
 <span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="c1"># wrap results</span>
 <span class="g g-Whitespace">    </span><span class="mi">801</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap_results</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">res_index</span><span class="p">)</span>
 
-<span class="nn">File ~\Documents\3.Repos\Rossmann-sales\.envRossmann\lib\site-packages\pandas\core\apply.py:815,</span> in <span class="ni">FrameApply.apply_series_generator</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
+<span class="nn">File ~\Documents\3.Repos\Rossmann-sales\.envRossmann\lib\site-packages\pandas\core\apply.py:812,</span> in <span class="ni">FrameApply.apply_series_generator</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span> <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">    </span><span class="mi">811</span> <span class="k">with</span> <span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;mode.chained_assignment&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">812</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">813</span>         <span class="c1"># ignore SettingWithCopy here in case the user mutates</span>
 <span class="g g-Whitespace">    </span><span class="mi">814</span>         <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">815</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">815</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">816</span>             <span class="c1"># If we have a view on v, we need to make a copy because</span>
 <span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="c1">#  series_generator will swap out the underlying data</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span>             <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span> <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span>
+
+<span class="nn">File ~\Documents\3.Repos\Rossmann-sales\.envRossmann\lib\site-packages\pandas\core\apply.py:940,</span> in <span class="ni">FrameColumnApply.series_generator</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span> <span class="k">for</span> <span class="n">arr</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">938</span>     <span class="c1"># GH#35462 re-pin mgr in case setitem changed it</span>
+<span class="g g-Whitespace">    </span><span class="mi">939</span>     <span class="n">ser</span><span class="o">.</span><span class="n">_mgr</span> <span class="o">=</span> <span class="n">mgr</span>
+<span class="ne">--&gt; </span><span class="mi">940</span>     <span class="n">mgr</span><span class="o">.</span><span class="n">set_values</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="s2">&quot;_name&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span>     <span class="k">yield</span> <span class="n">ser</span>
+
+<span class="nn">File ~\Documents\3.Repos\Rossmann-sales\.envRossmann\lib\site-packages\pandas\core\internals\managers.py:2074,</span> in <span class="ni">SingleBlockManager.set_values</span><span class="nt">(self, values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2070</span> <span class="c1"># TODO(CoW) do we need to handle copy on write here? Currently this is</span>
+<span class="g g-Whitespace">   </span><span class="mi">2071</span> <span class="c1"># only used for FrameColumnApply.series_generator (what if apply is</span>
+<span class="g g-Whitespace">   </span><span class="mi">2072</span> <span class="c1"># mutating inplace?)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2073</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">values</span>
+<span class="ne">-&gt; </span><span class="mi">2074</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_mgr_locs</span> <span class="o">=</span> <span class="n">BlockPlacement</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)))</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -4544,7 +4559,7 @@ Tempo gasto: 18258.88 segundos
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="README.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
